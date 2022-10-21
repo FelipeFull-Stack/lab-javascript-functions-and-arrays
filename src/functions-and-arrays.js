@@ -1,41 +1,118 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
-
+function maxOfTwoNumbers(x,y) {
+  if(x>y){
+    return x;
+  }else if(y>x){
+    return y;
+  }else{
+    return "The same number";
+  }
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let cont = 0, index = 0;
+  for(let i=0; i<words.length; i++){
+    if(words[i].length > cont){
+      cont = words[i].length;
+      index = i;
+    }
+  }
+  return "Longest word is: " + words[index];
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
-
+function sumNumbers(numbers) {
+  let sum = 0;
+  for(let i=0; i<numbers.length; i++){
+    sum += numbers[i];
+  }
+  return sum;
+}
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
-
+function sum(array) {
+  let soma = 0;
+  let str = "";
+  for(let i=0; i<array.length; i++){
+    str = typeof(array[i]);
+    switch(str){
+      case 'bolean':
+        if(array[i] === "true"){
+          soma++;
+        }
+        break;
+      case 'string':
+        soma += array[i].length;
+        break;
+      case 'number':
+        soma += array[i];
+        break;
+      default:
+        break;
+    }
+  }
+  return soma;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
-
+function averageNumbers(numbersAvg) {
+  let soma=0, index=0;
+  if(numbersAvg === ""){
+    return 0;
+  }else{
+    for(let i=0; i<numbersAvg.length; i++){
+      soma += numbersAvg[i];
+      index++;
+    }
+    return soma/index;
+  }
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
-
+function averageWordLength(wordsArr) {
+  let index=0, soma=0;
+  if(wordsArr === ""){
+    return 0;
+  }else{
+    index = wordsArr.length;
+    for(let i=0; i<index; i++){
+      soma += wordsArr[i].length;
+    }
+    return soma/index;
+  }
+}
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(array) {
+  let soma = 0;
+  let str = "";
+  for(let i=0; i<array.length; i++){
+    str = typeof(array[i]);
+    switch(str){
+      case 'bolean':
+        if(array[i] === "true"){
+          soma++;
+        }
+        break;
+      case 'string':
+        soma += array[i].length;
+        break;
+      case 'number':
+        soma += array[i];
+        break;
+      default:
+        break;
+    }
+  }
+  return soma;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,7 +129,10 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  let array = [];
+  
+}
 
 
 

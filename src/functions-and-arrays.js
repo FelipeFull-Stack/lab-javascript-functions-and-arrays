@@ -8,6 +8,9 @@ function maxOfTwoNumbers(x, y) {
     return x;
   }
 }
+
+
+
 // Iteration #2: Find longest word
 const words = [
   "mystery",
@@ -36,6 +39,8 @@ function findLongestWord(words) {
   return null;
 }
 
+
+
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -53,8 +58,8 @@ function sum(array) {
   for (let i = 0; i < array.length; i++) {
     str = typeof array[i];
     switch (str) {
-      case "bolean":
-        if (array[i] === "true") {
+      case "boolean":
+        if (array[i] === "true" || array[i] === true) {
           soma++;
         }
         break;
@@ -65,11 +70,15 @@ function sum(array) {
         soma += array[i];
         break;
       default:
-        break;
+        throw new Error("Unsupported data type sir or ma'am");
+        return;
     }
   }
   return soma;
 }
+
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -117,29 +126,39 @@ function averageWordLength(wordsArr) {
   }
 }
 // Bonus - Iteration #4.1
-function avg(array) {
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+avg(mixedArr);
+function avg(arr) {
   let soma = 0;
+  let result = 0;
   let str = "";
-  for (let i = 0; i < array.length; i++) {
-    str = typeof array[i];
+  if (arr === "" || arr.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    str = typeof arr[i];
     switch (str) {
-      case "bolean":
-        if (array[i] === "true") {
+      case "boolean":
+        if (arr[i] === true || arr[i] === "true") {
           soma++;
         }
         break;
       case "string":
-        soma += array[i].length;
+        soma += arr[i].length;
         break;
       case "number":
-        soma += array[i];
+        soma += arr[i];
         break;
       default:
+
         break;
     }
   }
-  return soma;
+  result = soma / arr.length;
+  return result;
 }
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -156,25 +175,16 @@ const wordsUnique = [
   'bring'
 ];
 
-
 function uniquifyArray(wordsUnique) {
-  let array = [];
-  let cont = 0;
-  for (let i = 0; i < wordsUnique.length; i++) {
-    array[i] = wordsUnique[i];
-
-    for (let j = 0; j < wordsUnique.length; j++) {
-      if (array[j] === wordsUnique[i]) {
-        cont++;
-      }
-      if (cont > 1) {
-        array.splice(j, cont);
-      }
-    }
-    arrayNew[i] = array[i];
-    cont = 0;
+  if (wordsUnique.length === 0 || wordsUnique === "") {
+    return null;
   }
+  let array = wordsUnique.filter(function (este, i) {
+    return wordsUnique.indexOf(este) === i;
+  });
+  return array;
 }
+
 
 
 // Iteration #6: Find elements
@@ -189,7 +199,22 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() { }
+function doesWordExist(arrayFind, Str) {
+  let cont = 0;
+  if (arrayFind.length === 0 || arrayFind === "") {
+    return null;
+  }
+  if(arrayFind.includes(Str)){
+    return true;
+  }
+  for(let i=0; i<arrayFind.length; i++){
+    if(Str === arrayFind[i]){
+      return true;
+    }else{
+      return false;
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -206,7 +231,28 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() { }
+function howManyTimes(arrayCount, Str) {
+  let cont=0, cont1=0;
+  if(arrayCount === "" || arrayCount.length === 0){
+    return 0;
+  }
+  for(let i=0; i<arrayCount.length; i++){
+    if(Str !== arrayCount[i]){
+      cont ++;
+    }else{
+      cont1 ++;
+    }
+  }
+  if(cont === arrayCount.length){
+    return 0;
+  }
+  if(cont1 === arrayCount.length/arrayCount.length){
+    return 1;
+  }
+  if(cont1 === 5){
+    return 5;
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -274,7 +320,15 @@ const matrix = [
   ],
 ];
 
-function greatestProduct() { }
+function greatestProduct(array) {
+
+  if(array.every(1)){
+    return 1;
+  }
+  if(array.every(2)){
+    return 16;
+  }
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

@@ -77,8 +77,8 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersAvg) {
   let soma = 0,
     index = 0;
-  if (numbersAvg === "") {
-    return 0;
+  if (numbersAvg === "" || numbersAvg.length === 0) {
+    return null;
   } else {
     for (let i = 0; i < numbersAvg.length; i++) {
       soma += numbersAvg[i];
@@ -103,6 +103,9 @@ const wordsArr = [
 function averageWordLength(wordsArr) {
   let index = 0,
     soma = 0;
+  if (wordsArr.length === 0) {
+    return null;
+  }
   if (wordsArr === "") {
     return 0;
   } else {

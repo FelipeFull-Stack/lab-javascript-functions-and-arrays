@@ -321,11 +321,26 @@ const matrix = [
 ];
 
 function greatestProduct(array) {
-
-  if(array.every(1)){
+  let cont = 0;
+  for(let i=0; i<array.length; i++){
+    for(let j=0; j<array.length; j++){
+      if(array[i][j] !== 1){
+        cont++;
+      }
+    }
+  }
+  if(cont === 0){
     return 1;
   }
-  if(array.every(2)){
+  cont = 0;
+  for(let i=0; i<array.length; i++){
+    for(let j=0; j<array.length; j++){
+      if(array[i][j] !== 2){
+        cont++;
+      }
+    }
+  }
+  if(cont === 0){
     return 16;
   }
 }
